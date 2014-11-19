@@ -1,0 +1,15 @@
+'edit own follow links':
+  title: 'Edit own follow links'
+  description: ''
+'edit site follow links':
+  title: 'Edit the site-wide follow links'
+  description: ''
+'edit any user follow links':
+  title: 'Edit any user''s follow links'
+  description: ''
+'administer follow':
+  title: 'Administer follow'
+  description: ''
+'change follow link titles':
+  title: 'Change link titles'
+  description: 'Allows changing the text that appears in the follow links.'

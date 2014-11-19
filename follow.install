@@ -1,5 +1,4 @@
 <?php
-// $Id: follow.install,v 1.8 2010/05/13 18:08:48 q0rban Exp $
 
 /**
  * @file
@@ -7,7 +6,7 @@
  */
 
 /**
- * Implementation of hook_install().
+ * Implements hook_install().
  */
 function follow_install() {
   // Add a default link to this site's node RSS feed.
@@ -20,10 +19,12 @@ function follow_install() {
       'weight' => 0,
     ))
     ->execute();
+  // Save the initial CSS.
+  follow_save_css();
 }
 
 /**
- * Implementation of hook_schema().
+ * Implements hook_schema().
  */
 function follow_schema() {
   $schema['follow_links'] = array(
@@ -85,26 +86,14 @@ function follow_schema() {
 }
 
 /**
- * Implementation of hook_uninstall().
+ * Implements hook_uninstall().
  */
 function follow_uninstall() {
-  variable_del('follow_user_block_title');
-  variable_del('follow_site_block_title');
-  variable_del('follow_site_block_user');
-}
-
-/**
- * Implementation of hook_update_last_removed().
- */
-function follow_update_last_removed() {
-  // We need to ensure that all D6 users have upgraded to the latest version of 
-  // Follow before upgrading to D7.
-  return 6003;
-}
-
-/**
- * Placeholder to ensure the correct schema version.
- */
-function follow_update_7003() {
-
+  \Drupal::config('follow.settings')->clear('follow_user_block_title');
+  \Drupal::config('follow.settings')->clear('follow_site_block_title');
+  \Drupal::config('follow.settings')->clear('follow_site_block_user');
+  \Drupal::config('follow.settings')->clear('follow_site_icon_style');
+  \Drupal::config('follow.settings')->clear('follow_user_icon_style');
+  \Drupal::config('follow.settings')->clear('follow_site_alignment');
+  \Drupal::config('follow.settings')->clear('follow_user_alignment');
 }

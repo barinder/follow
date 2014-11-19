@@ -1,0 +1,6 @@
+name: Follow
+description: 'Add sitewide and per user links to social network profiles.'
+core: 8.x
+config: follow.admin
+type: module
+version: 8.x-1.x
